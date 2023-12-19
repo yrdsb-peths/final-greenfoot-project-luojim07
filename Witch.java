@@ -15,8 +15,8 @@ public class Witch extends Actor
     
     public Witch()
     {
-        GreenfootImage img = new GreenfootImage("pixel_witch_nobg.png");
-        img.scale(150, 200);
+        GreenfootImage img = new GreenfootImage("12_lown.png");
+        img.scale(80, 150);
         setImage(img);
     }
     

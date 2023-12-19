@@ -20,6 +20,10 @@ public class GameWorld extends World
         GreenfootImage img = new GreenfootImage("forest_bg.png");
         img.scale(1000, 400);
         setBackground(img);
-    
+        
+        Witch witch = new Witch();
+        addObject(witch,750,280);
     }
+    
+    
 }
