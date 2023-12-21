@@ -22,7 +22,7 @@ public class GameWorld extends World
         setBackground(img);
         
         Witch witch = new Witch();
-        addObject(witch,750,280);
+        addObject(witch,750,310);
     }
     
     

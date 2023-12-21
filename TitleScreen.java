@@ -26,13 +26,11 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
-        Witch witch = new Witch();
-        addObject(witch,370,280);
-
         Label label = new Label("Anesthesia", 110);
-        addObject(label,270,105);
+        addObject(label,300,175);
         
-        
+        Label label2 = new Label("Click to start game!", 50);
+        addObject(label2,300,275);
     }
     
     public void act()
