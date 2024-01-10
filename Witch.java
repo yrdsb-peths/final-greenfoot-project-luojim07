@@ -12,16 +12,84 @@ public class Witch extends Actor
      * Act - do whatever the Witch wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    GreenfootImage[] idle = new GreenfootImage[4];
+    GreenfootImage[] left = new GreenfootImage[4];
+    GreenfootImage[] right = new GreenfootImage[4];
+    GreenfootImage[] up = new GreenfootImage[4];
+    GreenfootImage[] down = new GreenfootImage[4];
+
+    String facing = "up";
+    SimpleTimer animationTimer = new SimpleTimer();
     public Witch()
     {
-        GreenfootImage img = new GreenfootImage("pixel_witch_nobg.png");
-        img.scale(150, 200);
-        setImage(img);
+        for (int i = 0; i < idle.length; i++)
+        {
+            idle[i] = new GreenfootImage("0"+ i + "_lown" + ".png");
+            
+        }
+        
+        for (int i = 0; i < left.length; i++)
+        {
+            left[i] = new GreenfootImage("0"+ (i+4) + "_lown" + ".png"); 
+        }
+        
+        for (int i = 0; i < right.length; i++)
+        { 
+            if(i>=2)
+            {
+                right[i] = new GreenfootImage((i+8) + "_lown" + ".png"); 
+            }
+            else
+            {
+                right[i] = new GreenfootImage("0"+ (i+8) + "_lown" + ".png");
+            }
+        }
+        animationTimer.mark();
+        setImage(idle[0]);
     }
     
-    public void act()
+     public void act()
     {
-        // Add your action code here.
+        if(Greenfoot.isKeyDown("left"))
+        {
+            facing = "left";
+            move(-2);
+        }
+        else if(Greenfoot.isKeyDown("right"))
+        {
+            facing = "right";
+            move(2);
+        }
+        else if(Greenfoot.isKeyDown("up"))
+        {
+            facing = "up";
+        }
+        animateWitch();
+    }
+    int imageIndex = 0;
+    public void animateWitch()
+    {
+        if (animationTimer.millisElapsed() < 200)
+        {
+            return;
+        }
+        animationTimer.mark();
+        if(facing.equals("left"))
+        {
+            setImage(left[imageIndex]);  
+            imageIndex = (imageIndex + 1) % left.length;
+        }
+        else if(facing.equals("right"))
+        {
+            setImage(right[imageIndex]);  
+            imageIndex = (imageIndex + 1) % right.length;
+        }
+        else if(facing.equals("up"))
+        {
+            setImage(idle[imageIndex]);  
+            imageIndex = (imageIndex + 1) % idle.length;
+        }
     }
 }
+
+
