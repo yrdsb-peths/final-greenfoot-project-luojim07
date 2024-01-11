@@ -44,6 +44,10 @@ public class Witch extends Actor
                 right[i] = new GreenfootImage("0"+ (i+8) + "_lown" + ".png");
             }
         }
+        for (int i = 0; i < up.length; i++)
+        {
+            up[i] = new GreenfootImage((i+12) + "_lown" + ".png"); 
+        }
         animationTimer.mark();
         setImage(idle[0]);
     }
@@ -63,6 +67,14 @@ public class Witch extends Actor
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
+        }
+        else if(Greenfoot.isKeyDown("down"))
+        {
+            facing = "down";
+        }
+        else if(Greenfoot.mouseClicked(null))
+        {
+            facing = "idle";
         }
         animateWitch();
     }
@@ -85,6 +97,11 @@ public class Witch extends Actor
             imageIndex = (imageIndex + 1) % right.length;
         }
         else if(facing.equals("up"))
+        {
+            setImage(up[imageIndex]);  
+            imageIndex = (imageIndex + 1) % up.length;
+        }
+        else if(facing.equals("idle"))
         {
             setImage(idle[imageIndex]);  
             imageIndex = (imageIndex + 1) % idle.length;
