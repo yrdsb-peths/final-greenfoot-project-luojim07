@@ -82,6 +82,11 @@ public class Witch extends Actor
             facing = "idle";
         }
         animateWitch();
+        if(getY() < 40)
+        {
+            OutOfBounds world = new OutOfBounds();
+            Greenfoot.setWorld(world);
+        }
     }
     int imageIndex = 0;
     public void animateWitch()
