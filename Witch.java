@@ -70,10 +70,12 @@ public class Witch extends Actor
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
+            setLocation(getX(), getY()-2);
         }
         else if(Greenfoot.isKeyDown("down"))
         {
             facing = "down";
+            setLocation(getX(), getY()+2);
         }
         else if(Greenfoot.mouseClicked(null))
         {
