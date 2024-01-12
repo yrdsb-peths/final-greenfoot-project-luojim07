@@ -1,5 +1,6 @@
 #Greenfoot project file
 class.GameWorld.image=forest_bg.png
+class.OutOfBounds.image=OutOfBounds.png
 class.TitleScreen.image=IntroScreen\ bg.png
 class.Witch.image=12_lown.png
 dependency1.from=GameWorld
@@ -14,12 +15,15 @@ dependency3.type=UsesDependency
 dependency4.from=Witch
 dependency4.to=SimpleTimer
 dependency4.type=UsesDependency
+dependency5.from=Witch
+dependency5.to=OutOfBounds
+dependency5.type=UsesDependency
 editor.fx.0.height=739
 editor.fx.0.width=816
-editor.fx.0.x=764
-editor.fx.0.y=183
+editor.fx.0.x=552
+editor.fx.0.y=100
 height=1056
-package.numDependencies=4
+package.numDependencies=5
 package.numTargets=6
 project.charset=windows-1252
 publish.hasSource=false
