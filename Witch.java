@@ -18,14 +18,13 @@ public class Witch extends Actor
     GreenfootImage[] up = new GreenfootImage[4];
     GreenfootImage[] down = new GreenfootImage[4];
 
-    String facing = "up";
+    String facing = "idle";
     SimpleTimer animationTimer = new SimpleTimer();
     public Witch()
     {
-        for (int i = 0; i < idle.length; i++)
+        for (int i = 0; i < down.length; i++)
         {
-            idle[i] = new GreenfootImage("0"+ i + "_lown" + ".png");
-            
+            down[i] = new GreenfootImage("0"+ i + "_lown" + ".png");
         }
         
         for (int i = 0; i < left.length; i++)
@@ -46,7 +45,11 @@ public class Witch extends Actor
         }
         for (int i = 0; i < up.length; i++)
         {
-            up[i] = new GreenfootImage((i+12) + "_lown" + ".png"); 
+            up[i] = new GreenfootImage((i+16) + "_lown" + ".png"); 
+        }
+        for (int i = 0; i < idle.length; i++)
+        {
+            idle[i] = new GreenfootImage((i+12) + "_lown" + ".png"); 
         }
         animationTimer.mark();
         setImage(idle[0]);
@@ -101,7 +104,12 @@ public class Witch extends Actor
             setImage(up[imageIndex]);  
             imageIndex = (imageIndex + 1) % up.length;
         }
-        else if(facing.equals("idle"))
+        else if(facing.equals("down"))
+        {
+            setImage(down[imageIndex]);  
+            imageIndex = (imageIndex + 1) % down.length;
+        }
+        else
         {
             setImage(idle[imageIndex]);  
             imageIndex = (imageIndex + 1) % idle.length;
