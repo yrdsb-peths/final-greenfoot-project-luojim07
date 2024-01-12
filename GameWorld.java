@@ -25,5 +25,9 @@ public class GameWorld extends World
         addObject(witch,750,310);
     }
     
+    public void act()
+    {
+        
+    }
     
 }
