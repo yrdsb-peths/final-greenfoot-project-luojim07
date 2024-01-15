@@ -27,10 +27,13 @@ public class TitleScreen extends World
     private void prepare()
     {
         Label label = new Label("Anesthesia", 110);
-        addObject(label,300,175);
+        addObject(label,300,165);
         
-        Label label2 = new Label("Click to start game!", 50);
-        addObject(label2,300,275);
+        Label label2 = new Label("Click to start!", 50);
+        addObject(label2,300,265);
+        
+        Label label3 = new Label("Use arrow keys for movement", 30);
+        addObject(label3,200,365);
     }
     
     public void act()
