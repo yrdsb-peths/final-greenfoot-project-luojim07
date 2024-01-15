@@ -55,12 +55,15 @@ public class Witch extends Actor
         setImage(idle[0]);
     }
     
-     public void act()
+    public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
             facing = "left";
-            move(-2);
+            if(getX() > 200)
+            {
+                move(-2);
+            }
         }
         else if(Greenfoot.isKeyDown("right"))
         {
