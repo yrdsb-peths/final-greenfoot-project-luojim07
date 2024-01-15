@@ -23,6 +23,13 @@ public class GameWorld extends World
         
         Witch witch = new Witch();
         addObject(witch,750,310);
+        
+        Heart heart1 = new Heart();
+        addObject(heart1,50, 50);
+        Heart heart2 = new Heart();
+        addObject(heart2,125, 50);
+        Heart heart3 = new Heart();
+        addObject(heart3,200, 50);
     }
     
     public void act()

@@ -55,12 +55,15 @@ public class Witch extends Actor
         setImage(idle[0]);
     }
     
-     public void act()
+    public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
             facing = "left";
-            move(-2);
+            if(getX() > 200)
+            {
+                move(-2);
+            }
         }
         else if(Greenfoot.isKeyDown("right"))
         {
@@ -70,23 +73,25 @@ public class Witch extends Actor
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
-            setLocation(getX(), getY()-2);
+            if(getY() > 250)
+            {
+                setLocation(getX(), getY()-2);
+            }
+            
         }
         else if(Greenfoot.isKeyDown("down"))
         {
             facing = "down";
-            setLocation(getX(), getY()+2);
+            if(getY() < 350)
+            {
+                setLocation(getX(), getY()+2);
+            }
         }
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
         }
         animateWitch();
-        if(getY() < 40)
-        {
-            OutOfBounds world = new OutOfBounds();
-            Greenfoot.setWorld(world);
-        }
     }
     int imageIndex = 0;
     public void animateWitch()
