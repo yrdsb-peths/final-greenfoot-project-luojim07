@@ -30,6 +30,9 @@ public class GameWorld extends World
         addObject(heart2,125, 50);
         Heart heart3 = new Heart();
         addObject(heart3,200, 50);
+        
+        Fireball fire = new Fireball();
+        addObject(fire, 400, 0);
     }
     
     public void act()
