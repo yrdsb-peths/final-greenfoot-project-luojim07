@@ -92,6 +92,7 @@ public class Witch extends Actor
             facing = "idle";
         }
         animateWitch();
+        damaged();
     }
     int imageIndex = 0;
     public void animateWitch()
@@ -127,6 +128,16 @@ public class Witch extends Actor
             imageIndex = (imageIndex + 1) % idle.length;
         }
     }
+    public void damaged()
+    {
+        if(isTouching(Fireball.class))
+        {
+            removeTouching(Fireball.class);
+            GameWorld world = (GameWorld) getWorld();
+            world.spawnFire();
+        }
+    }
+    
 }
 
 

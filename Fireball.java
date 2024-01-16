@@ -29,11 +29,11 @@ public class Fireball extends Actor
         GameWorld world = (GameWorld) getWorld();
         setLocation(getX(), getY()+1);
         animateFireball();
-        if(getY() > 300)
+        
+        if(isAtEdge())
         {
-            removeTouching(Fireball.class);
-            world.spawnFire();
-            
+            getWorld().removeObject(this);
+ 
         }
     }
     int imageIndex = 0;
