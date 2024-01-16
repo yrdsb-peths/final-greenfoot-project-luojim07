@@ -13,6 +13,7 @@ public class GameWorld extends World
      * Constructor for objects of class GameWorld.
      * 
      */
+
     public GameWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -30,8 +31,9 @@ public class GameWorld extends World
         addObject(heart2,125, 50);
         Heart heart3 = new Heart();
         addObject(heart3,200, 50);
-
+        
         spawnFire();
+        
     }
 
     public void act()
@@ -46,4 +48,6 @@ public class GameWorld extends World
         addObject(fire, x + 200, 0);
         
     }
+    
+    
 }

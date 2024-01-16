@@ -30,6 +30,11 @@ public class Fireball extends Actor
         setLocation(getX(), getY()+1);
         animateFireball();
         
+        if(isAtEdge())
+        {
+            getWorld().removeObject(this);
+ 
+        }
     }
     int imageIndex = 0;
     public void animateFireball()
