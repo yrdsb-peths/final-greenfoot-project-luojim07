@@ -20,24 +20,30 @@ public class GameWorld extends World
         GreenfootImage img = new GreenfootImage("forest_bg.png");
         img.scale(1000, 400);
         setBackground(img);
-        
+
         Witch witch = new Witch();
         addObject(witch,750,310);
-        
+
         Heart heart1 = new Heart();
         addObject(heart1,50, 50);
         Heart heart2 = new Heart();
         addObject(heart2,125, 50);
         Heart heart3 = new Heart();
         addObject(heart3,200, 50);
-        
-        Fireball fire = new Fireball();
-        addObject(fire, 400, 0);
+
+        spawnFire();
     }
-    
+
     public void act()
     {
         
     }
-    
+
+    public void spawnFire()
+    {
+        int x = Greenfoot.getRandomNumber(800);
+        Fireball fire = new Fireball();
+        addObject(fire, x + 200, 0);
+        
+    }
 }

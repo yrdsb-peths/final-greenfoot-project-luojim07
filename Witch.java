@@ -92,6 +92,7 @@ public class Witch extends Actor
             facing = "idle";
         }
         animateWitch();
+        
     }
     int imageIndex = 0;
     public void animateWitch()
