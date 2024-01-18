@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld extends World
 {
-
+    public static int maxFireballs = 10;
+    public static int maxHearts = 2;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -25,20 +26,16 @@ public class GameWorld extends World
         Witch witch = new Witch();
         addObject(witch,750,310);
 
-        Heart heart1 = new Heart();
-        addObject(heart1,50, 50);
-        Heart heart2 = new Heart();
-        addObject(heart2,125, 50);
-        Heart heart3 = new Heart();
-        addObject(heart3,200, 50);
-        
         spawnFire();
-        
+        Heart heart = new Heart();
+        addObject(heart,50, 50);
+        SecondHeart heart2 = new SecondHeart();
+        addObject(heart2,125, 50);
     }
 
     public void act()
     {
-        
+
     }
 
     public void spawnFire()
@@ -46,8 +43,7 @@ public class GameWorld extends World
         int x = Greenfoot.getRandomNumber(800);
         Fireball fire = new Fireball();
         addObject(fire, x + 200, 0);
-        
+
     }
-    
-    
+
 }

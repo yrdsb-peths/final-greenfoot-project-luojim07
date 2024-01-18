@@ -35,8 +35,8 @@ public class TitleScreen extends World
         Label label3 = new Label("Use arrow keys for movement", 28);
         addObject(label3,180,345);
         
-        Label label4 = new Label("Click to heal the witch", 28);
-        addObject(label4,140,375);
+        Label label4 = new Label("Click for ONE TIME HEAL", 28);
+        addObject(label4,160,375);
     }
     
     public void act()

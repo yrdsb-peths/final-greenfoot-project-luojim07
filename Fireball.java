@@ -31,7 +31,7 @@ public class Fireball extends Actor
         setLocation(getX(), getY()+2);
         animateFireball();
 
-        if(getY() == 250)
+        if(getY() == 250 && getWorld().numberOfObjects() < GameWorld.maxFireballs)
         {
             ((GameWorld) getWorld()).spawnFire();
         }
