@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Witch extends Actor
 {
-    /**
-     * Act - do whatever the Witch wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootSound witchHurt = new GreenfootSound("a.mp4");
     GreenfootImage[] idle = new GreenfootImage[4];
     GreenfootImage[] left = new GreenfootImage[4];
     GreenfootImage[] right = new GreenfootImage[4];
@@ -147,6 +144,7 @@ public class Witch extends Actor
             world.spawnFire();
             getWorld().removeObjects(getWorld().getObjects(SecondHeart.class));
             GameWorld.maxHearts--;
+            witchHurt.play();
         }
         
     }
