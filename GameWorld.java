@@ -12,6 +12,7 @@ public class GameWorld extends World
     public static int maxFireballs = 12;
     public static int maxHearts = 5;
     public static int lastHeart = 2;
+    public static int healCount = 3;
     public static int score = 0;
     public static int plSpd = 2;
 

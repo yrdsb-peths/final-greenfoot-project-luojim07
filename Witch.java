@@ -98,10 +98,11 @@ public class Witch extends Actor
             if(GameWorld.maxHearts > 0 && GameWorld.lastHeart < 2)
             {
                 GameWorld.lastHeart++;
-                if(GameWorld.lastHeart != 0)
+                if(GameWorld.lastHeart != 0 && GameWorld.healCount != 0)
                 {
                     getWorld().addObject(new SecondHeart(), 125, 50);
                     healing.play();
+                    GameWorld.healCount--;
                 }
             }
         }
@@ -156,6 +157,7 @@ public class Witch extends Actor
             GameWorld.maxHearts--;
             witchHurt.play();
             GameWorld.lastHeart--;
+            
         }
         
     }
