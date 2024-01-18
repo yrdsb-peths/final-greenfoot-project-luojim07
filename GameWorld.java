@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     GreenfootSound bgMusic = new GreenfootSound("21 Savage - nee nah (instrumental) ft. Travis Scott.mp3");
-    public static int maxFireballs = 10;
+    public static int maxFireballs = 12;
     public static int maxHearts = 5;
     public static int lastHeart = 2;
     public static int score = 0;
@@ -74,11 +74,6 @@ public class GameWorld extends World
         {
             Fireball fire3 = new Fireball();
             addObject(fire3, Greenfoot.getRandomNumber(600) + 350, 0);
-        }
-        if(score >= 50 && Greenfoot.getRandomNumber(2) == 1)
-        {
-            Fireball fire4 = new Fireball();
-            addObject(fire4, Greenfoot.getRandomNumber(600) + 350, 0);
         }
     }
 
