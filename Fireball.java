@@ -56,10 +56,14 @@ public class Fireball extends Actor
             spd = 8;
             GameWorld.plSpd = 5;
         }
-        if(GameWorld.score >= 50)
+        if(GameWorld.score >= 50 && GameWorld.score < 75)
         {
             spd = 9;
             GameWorld.plSpd = 6;
+        }
+        if(GameWorld.score >= 75)
+        {
+            spd = 10;
         }
         if(getY() == 252 && getWorld().numberOfObjects() < GameWorld.maxFireballs)
         {

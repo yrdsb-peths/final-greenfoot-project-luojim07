@@ -49,6 +49,7 @@ public class GameWorld extends World
         {
             GameOver world = new GameOver();
             Greenfoot.setWorld(world);
+            bgMusic.stop();
         }
     }
 
@@ -69,10 +70,15 @@ public class GameWorld extends World
             Fireball fire2 = new Fireball();
             addObject(fire2, Greenfoot.getRandomNumber(600) + 350, 0);
         }
-        if(score >= 30 && Greenfoot.getRandomNumber(3) == 1)
+        if(score >= 30 && Greenfoot.getRandomNumber(2) == 1)
         {
             Fireball fire3 = new Fireball();
             addObject(fire3, Greenfoot.getRandomNumber(600) + 350, 0);
+        }
+        if(score >= 50 && Greenfoot.getRandomNumber(2) == 1)
+        {
+            Fireball fire4 = new Fireball();
+            addObject(fire4, Greenfoot.getRandomNumber(600) + 350, 0);
         }
     }
 
