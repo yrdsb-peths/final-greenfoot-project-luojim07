@@ -11,6 +11,8 @@ public class Witch extends Actor
     GreenfootSound witchHurt = new GreenfootSound("a.mp3");
     GreenfootSound healing = new GreenfootSound("healing.mp3");
     
+    int plSpd = 2;
+    
     GreenfootImage[] idle = new GreenfootImage[4];
     GreenfootImage[] left = new GreenfootImage[4];
     GreenfootImage[] right = new GreenfootImage[4];
@@ -64,20 +66,20 @@ public class Witch extends Actor
             facing = "left";
             if(getX() > 200)
             {
-                move(-2);
+                move(-plSpd);
             }
         }
         else if(Greenfoot.isKeyDown("right"))
         {
             facing = "right";
-            move(2);
+            move(plSpd);
         }
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
             if(getY() > 250)
             {
-                setLocation(getX(), getY()-2);
+                setLocation(getX(), getY()-plSpd);
             }
 
         }
@@ -86,13 +88,13 @@ public class Witch extends Actor
             facing = "down";
             if(getY() < 350)
             {
-                setLocation(getX(), getY()+2);
+                setLocation(getX(), getY()+plSpd);
             }
         }
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
-            if(GameWorld.maxHearts > 1)
+            if(GameWorld.maxHearts >1)
             {
                 getWorld().addObject(new SecondHeart(), 125, 50);
                 healing.play();
