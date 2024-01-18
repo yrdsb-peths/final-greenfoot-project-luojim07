@@ -22,6 +22,10 @@ public class GameOver extends World
     
     private void prepare()
     {
-        
+
+        Label label = new Label("Game over", 110);
+        addObject(label,300,150);
+        Label label2 = new Label("Score: " + GameWorld.score, 80);
+        addObject(label2,300,250);
     }
 }

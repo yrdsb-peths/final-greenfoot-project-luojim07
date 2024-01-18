@@ -62,22 +62,25 @@ public class Witch extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             facing = "left";
-            if(getX() > 200)
+            if(getX() > 350)
             {
-                move(-2);
+                move(-GameWorld.plSpd);
             }
         }
         else if(Greenfoot.isKeyDown("right"))
         {
             facing = "right";
-            move(2);
+            if(getX() < 950)
+            {
+                move(GameWorld.plSpd);
+            }
         }
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
             if(getY() > 250)
             {
-                setLocation(getX(), getY()-2);
+                setLocation(getX(), getY()-GameWorld.plSpd);
             }
 
         }
@@ -86,16 +89,20 @@ public class Witch extends Actor
             facing = "down";
             if(getY() < 350)
             {
-                setLocation(getX(), getY()+2);
+                setLocation(getX(), getY()+GameWorld.plSpd);
             }
         }
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
-            if(GameWorld.maxHearts > 1)
+            if(GameWorld.maxHearts > 0)
             {
-                getWorld().addObject(new SecondHeart(), 125, 50);
-                healing.play();
+                GameWorld.lastHeart++;
+                if(GameWorld.lastHeart != 0)
+                {
+                    getWorld().addObject(new SecondHeart(), 125, 50);
+                    healing.play();
+                }
             }
         }
         
@@ -148,6 +155,7 @@ public class Witch extends Actor
             getWorld().removeObjects(getWorld().getObjects(SecondHeart.class));
             GameWorld.maxHearts--;
             witchHurt.play();
+            GameWorld.lastHeart--;
         }
         
     }
