@@ -33,5 +33,6 @@ public class GameOver extends World
         GameWorld.lastHeart = 2;
         GameWorld.score = 0;
         GameWorld.plSpd = 2;
+        GameWorld.healCount = 3;
     }
 }
