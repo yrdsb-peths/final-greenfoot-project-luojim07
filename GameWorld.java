@@ -10,10 +10,6 @@ public class GameWorld extends World
 {
     public static int maxFireballs = 10;
     public static int maxHearts = 4;
-    public static int score = 0;
-    
-
-    Label scoreLabel;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -29,28 +25,19 @@ public class GameWorld extends World
 
         Witch witch = new Witch();
         addObject(witch,750,310);
-        
-        scoreLabel = new Label(0, 100);
-        addObject(scoreLabel, 930, 50);
 
         spawnFire();
         Heart heart = new Heart();
         addObject(heart,50, 50);
         SecondHeart heart2 = new SecondHeart();
         addObject(heart2,125, 50);
-
     }
 
     public void act()
     {
-        
+
     }
 
-    public void increaseScore()
-    {
-        score++;
-        scoreLabel.setValue(score);
-    }
     public void spawnFire()
     {
         int x = Greenfoot.getRandomNumber(800);

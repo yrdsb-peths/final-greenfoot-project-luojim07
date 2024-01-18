@@ -27,23 +27,17 @@ public class Fireball extends Actor
     public void act()
     {
         // Add your action code here.
-        int spd = 4;
         GameWorld world = (GameWorld) getWorld();
-        setLocation(getX(), getY()+spd);
+        setLocation(getX(), getY()+2);
         animateFireball();
-        if(GameWorld.score % 10 == 0)
-        {
-            spd++;
-        }
+
         if(getY() == 250 && getWorld().numberOfObjects() < GameWorld.maxFireballs)
         {
             ((GameWorld) getWorld()).spawnFire();
-            ((GameWorld) getWorld()).increaseScore();
         }
         if(isAtEdge())
         {
             getWorld().removeObject(this);
-            
         }
     }
     int imageIndex = 0;
