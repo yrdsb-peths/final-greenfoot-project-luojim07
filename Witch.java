@@ -8,10 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Witch extends Actor
 {
-    /**
-     * Act - do whatever the Witch wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootSound witchHurt = new GreenfootSound("a.mp3");
+    GreenfootSound healing = new GreenfootSound("healing.mp3");
+    
     GreenfootImage[] idle = new GreenfootImage[4];
     GreenfootImage[] left = new GreenfootImage[4];
     GreenfootImage[] right = new GreenfootImage[4];
@@ -63,22 +62,25 @@ public class Witch extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             facing = "left";
-            if(getX() > 200)
+            if(getX() > 350)
             {
-                move(-2);
+                move(-GameWorld.plSpd);
             }
         }
         else if(Greenfoot.isKeyDown("right"))
         {
             facing = "right";
-            move(2);
+            if(getX() < 950)
+            {
+                move(GameWorld.plSpd);
+            }
         }
         else if(Greenfoot.isKeyDown("up"))
         {
             facing = "up";
             if(getY() > 250)
             {
-                setLocation(getX(), getY()-2);
+                setLocation(getX(), getY()-GameWorld.plSpd);
             }
 
         }
@@ -87,15 +89,20 @@ public class Witch extends Actor
             facing = "down";
             if(getY() < 350)
             {
-                setLocation(getX(), getY()+2);
+                setLocation(getX(), getY()+GameWorld.plSpd);
             }
         }
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
-            if(GameWorld.maxHearts == 1)
+            if(GameWorld.maxHearts > 0)
             {
-                getWorld().addObject(new SecondHeart(), 125, 50);
+                GameWorld.lastHeart++;
+                if(GameWorld.lastHeart != 0)
+                {
+                    getWorld().addObject(new SecondHeart(), 125, 50);
+                    healing.play();
+                }
             }
         }
         
@@ -147,6 +154,8 @@ public class Witch extends Actor
             world.spawnFire();
             getWorld().removeObjects(getWorld().getObjects(SecondHeart.class));
             GameWorld.maxHearts--;
+            witchHurt.play();
+            GameWorld.lastHeart--;
         }
         
     }
