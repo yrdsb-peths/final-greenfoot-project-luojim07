@@ -95,7 +95,7 @@ public class Witch extends Actor
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
-            if(GameWorld.maxHearts > 0)
+            if(GameWorld.maxHearts > 0 && GameWorld.lastHeart < 2)
             {
                 GameWorld.lastHeart++;
                 if(GameWorld.lastHeart != 0)

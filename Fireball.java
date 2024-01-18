@@ -65,6 +65,14 @@ public class Fireball extends Actor
         {
             spd = 10;
         }
+        if(GameWorld.score >= 100 && GameWorld.score < 200)
+        {
+            GameWorld.plSpd = 5;
+        }
+        if(GameWorld.score >= 200)
+        {
+            GameWorld.plSpd = 4;
+        }
         if(getY() == 252 && getWorld().numberOfObjects() < GameWorld.maxFireballs)
         {
             ((GameWorld) getWorld()).spawnFire();

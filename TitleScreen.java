@@ -38,9 +38,7 @@ public class TitleScreen extends World
         
         Label label4 = new Label("Click to heal, max 3 heals", 28);
         addObject(label4,170,375);
-        
-        Label label5 = new Label("spam click to try out movement", 30);
-        addObject(label5,410,20);
+    
     }
     
     public void act()
