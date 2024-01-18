@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     public static int maxFireballs = 10;
-    public static int maxHearts = 2;
+    public static int maxHearts = 4;
     /**
      * Constructor for objects of class GameWorld.
      * 

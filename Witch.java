@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Witch extends Actor
 {
-    GreenfootSound witchHurt = new GreenfootSound("a.mp4");
+    GreenfootSound witchHurt = new GreenfootSound("a.mp3");
+    GreenfootSound healing = new GreenfootSound("healing.mp3");
+    
     GreenfootImage[] idle = new GreenfootImage[4];
     GreenfootImage[] left = new GreenfootImage[4];
     GreenfootImage[] right = new GreenfootImage[4];
@@ -90,9 +92,10 @@ public class Witch extends Actor
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
-            if(GameWorld.maxHearts == 1)
+            if(GameWorld.maxHearts > 1)
             {
                 getWorld().addObject(new SecondHeart(), 125, 50);
+                healing.play();
             }
         }
         
