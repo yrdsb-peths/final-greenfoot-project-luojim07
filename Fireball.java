@@ -21,19 +21,23 @@ public class Fireball extends Actor
             fire[i] = new GreenfootImage("tile00" + i +".png");
         }
         animationTimer.mark();
-        
+
     }
+
     public void act()
     {
         // Add your action code here.
         GameWorld world = (GameWorld) getWorld();
-        setLocation(getX(), getY()+1);
+        setLocation(getX(), getY()+2);
         animateFireball();
-        
+
+        if(getY() == 250)
+        {
+            ((GameWorld) getWorld()).spawnFire();
+        }
         if(isAtEdge())
         {
             getWorld().removeObject(this);
- 
         }
     }
     int imageIndex = 0;
@@ -46,6 +50,6 @@ public class Fireball extends Actor
         animationTimer.mark();
         setImage(fire[imageIndex]);  
         imageIndex = (imageIndex + 1) % fire.length;
-        
+
     }
 }
