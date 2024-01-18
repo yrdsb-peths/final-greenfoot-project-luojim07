@@ -20,18 +20,19 @@ public class Witch extends Actor
 
     String facing = "idle";
     SimpleTimer animationTimer = new SimpleTimer();
+
     public Witch()
     {
         for (int i = 0; i < down.length; i++)
         {
             down[i] = new GreenfootImage("0"+ i + "_lown" + ".png");
         }
-        
+
         for (int i = 0; i < left.length; i++)
         {
             left[i] = new GreenfootImage("0"+ (i+4) + "_lown" + ".png"); 
         }
-        
+
         for (int i = 0; i < right.length; i++)
         { 
             if(i>=2)
@@ -53,10 +54,12 @@ public class Witch extends Actor
         }
         animationTimer.mark();
         setImage(idle[0]);
+        
     }
-    
+
     public void act()
     {
+        
         if(Greenfoot.isKeyDown("left"))
         {
             facing = "left";
@@ -77,7 +80,7 @@ public class Witch extends Actor
             {
                 setLocation(getX(), getY()-2);
             }
-            
+
         }
         else if(Greenfoot.isKeyDown("down"))
         {
@@ -90,7 +93,12 @@ public class Witch extends Actor
         else if(Greenfoot.mouseClicked(null))
         {
             facing = "idle";
+            if(GameWorld.maxHearts == 1)
+            {
+                getWorld().addObject(new SecondHeart(), 125, 50);
+            }
         }
+        
         animateWitch();
         damaged();
     }
@@ -128,16 +136,20 @@ public class Witch extends Actor
             imageIndex = (imageIndex + 1) % idle.length;
         }
     }
+
     public void damaged()
     {
+        
         if(isTouching(Fireball.class))
         {
             removeTouching(Fireball.class);
             GameWorld world = (GameWorld) getWorld();
             world.spawnFire();
+            getWorld().removeObjects(getWorld().getObjects(SecondHeart.class));
+            GameWorld.maxHearts--;
         }
+        
     }
-    
-}
 
+}
 
