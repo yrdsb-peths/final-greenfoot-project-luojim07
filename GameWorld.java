@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld extends World
 {
+    GreenfootSound bgMusic = new GreenfootSound("21 Savage - nee nah (instrumental) ft. Travis Scott.mp3");
     public static int maxFireballs = 10;
     public static int maxHearts = 5;
     public static int lastHeart = 2;
@@ -43,6 +44,7 @@ public class GameWorld extends World
 
     public void act()
     {
+        bgMusic.play();
         if(maxHearts == 0 || lastHeart == 0)
         {
             GameOver world = new GameOver();
