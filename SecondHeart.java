@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SecondHeart here.
+ * This heart can be regained through witch's healing
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jim
+ * @version v1
  */
 public class SecondHeart extends Actor
 {

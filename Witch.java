@@ -2,9 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Our protagonist, the Witch!
+ * Arrow keys to move left right up down
+ * Click to gain a heart when witch loses a heart
+ * Max of three heart gains
+ * Movement of speed may increase of decrease based on score
+ * Movement of witch is restricted to x = 350-950 and y = 250-350
  * 
  * @author Jim
- * @version 12/12/23
+ * @version v1
  */
 public class Witch extends Actor
 {

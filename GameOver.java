@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Gameover here.
+ * End screen when witch dies
+ * Shows score achieved before death
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jim
+ * @version v1
  */
 public class GameOver extends World
 {
