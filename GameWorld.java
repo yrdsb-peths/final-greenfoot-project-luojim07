@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameWorld here.
+ * Main gameworld is a magical forest
  * 
  * @author Jim Luo
- * @version (a version number or a date)
+ * @version v1
  */
 public class GameWorld extends World
 {
@@ -24,7 +24,7 @@ public class GameWorld extends World
 
     public GameWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 1000x400 cells with a cell size of 1x1 pixels.
         super(1000, 400, 1); 
         GreenfootImage img = new GreenfootImage("forest_bg.png");
         img.scale(1000, 400);
@@ -45,6 +45,7 @@ public class GameWorld extends World
 
     public void act()
     {
+        //goes to GameOver world when witch loses all hearts
         bgMusic.play();
         if(maxHearts == 0 || lastHeart == 0)
         {
@@ -62,6 +63,7 @@ public class GameWorld extends World
     
     public void spawnFire()
     {
+        // spawns fireball at random x pos between x = 350 and x = 950
         int x = Greenfoot.getRandomNumber(600);
         Fireball fire = new Fireball();
         addObject(fire, x + 350, 0);

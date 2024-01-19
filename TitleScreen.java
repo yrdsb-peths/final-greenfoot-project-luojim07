@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-
+    GreenfootSound introMus = new GreenfootSound("frank.mp3");
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -24,6 +24,7 @@ public class TitleScreen extends World
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
+     * Added title and user keys/instructions
      */
     private void prepare()
     {
@@ -38,15 +39,20 @@ public class TitleScreen extends World
         
         Label label4 = new Label("Click to heal, max 3 heals", 28);
         addObject(label4,170,375);
-    
+        introMus.play();
     }
     
     public void act()
     {
+        //Click to start game
         if(Greenfoot.mouseClicked(null))
         {
             GameWorld world = new GameWorld();
             Greenfoot.setWorld(world);
+            introMus.stop();
         }
+        
     }
+    
+    
 }

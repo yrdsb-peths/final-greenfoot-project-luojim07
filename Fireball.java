@@ -1,10 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fireball here.
+ * Fireball raining down from sky
+ * Witch loses one heart when fireball hits her
+ * Objective is to avoid it
+ * Number and speed of fireball will increase based on score
+ * Removed when touches edge of world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jim
+ * @version v1
  */
 public class Fireball extends Actor
 {
